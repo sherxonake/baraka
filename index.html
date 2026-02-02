@@ -9,156 +9,199 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;900&family=SF+Pro+Text:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   
   <style>
     :root {
       --bg: #000000;
-      --glass: rgba(30, 30, 46, 0.45);
-      --gold: #f5d577;
-      --gold-glow: rgba(245, 213, 119, 0.35);
-      --blur: blur(32px);
+      --glass: rgba(30, 30, 46, 0.38);
+      --gold: #f0d19e;
+      --gold-glow: rgba(240, 209, 158, 0.4);
+      --blur: blur(40px);
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
       background: var(--bg);
       color: white;
-      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'SF Pro Display', system-ui, -apple-system, sans-serif;
       min-height: 100vh;
-      overflow-x: hidden;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       background-image: 
-        radial-gradient(circle at 20% 30%, rgba(245,213,119,0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(245,213,119,0.05) 0%, transparent 60%);
+        radial-gradient(circle at 10% 20%, rgba(240,209,158,0.12) 0%, transparent 60%),
+        radial-gradient(circle at 90% 80%, rgba(240,209,158,0.08) 0%, transparent 70%);
       background-attachment: fixed;
     }
-    .glass {
+    .scene {
+      perspective: 1800px;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    .layer {
+      position: absolute;
+      inset: 0;
+      transform-style: preserve-3d;
+    }
+    .glass-panel {
       background: var(--glass);
       backdrop-filter: var(--blur);
       -webkit-backdrop-filter: var(--blur);
-      border: 1px solid rgba(245,213,119,0.12);
-      border-radius: 28px;
+      border: 1px solid rgba(240,209,158,0.15);
+      border-radius: 32px;
       box-shadow: 
-        0 32px 80px rgba(0,0,0,0.8),
-        inset 0 0 40px rgba(245,213,119,0.04);
-      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        0 40px 100px rgba(0,0,0,0.9),
+        inset 0 0 60px rgba(240,209,158,0.06);
+      transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
     }
-    .glass:hover {
-      transform: translateY(-16px) scale(1.015);
+    .glass-panel:hover {
+      transform: translateY(-40px) rotateX(6deg) rotateY(8deg) scale(1.02);
       border-color: var(--gold);
       box-shadow: 
-        0 48px 120px rgba(245,213,119,0.25),
-        inset 0 0 60px rgba(245,213,119,0.08);
+        0 80px 160px rgba(240,209,158,0.35),
+        inset 0 0 100px rgba(240,209,158,0.12);
     }
     .logo {
-      width: 280px;
-      filter: drop-shadow(0 0 60px var(--gold-glow));
-      animation: breathe 10s infinite ease-in-out;
+      width: 320px;
+      filter: drop-shadow(0 0 80px var(--gold-glow));
+      animation: float 14s infinite ease-in-out;
     }
-    @keyframes breathe {
-      0%, 100% { transform: scale(1); }
-      50%      { transform: scale(1.03); }
+    @keyframes float {
+      0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
+      50%      { transform: translate3d(0, -60px, 80px) rotateX(4deg) rotateY(6deg); }
     }
     h1 {
-      font-size: clamp(6rem, 15vw, 18rem);
+      font-size: clamp(8rem, 18vw, 24rem);
       font-weight: 900;
-      line-height: 0.82;
-      letter-spacing: -0.05em;
-      background: linear-gradient(90deg, var(--gold), #fff, var(--gold));
+      line-height: 0.8;
+      letter-spacing: -0.06em;
+      background: linear-gradient(90deg, var(--gold), #ffffff, var(--gold));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 80px var(--gold-glow);
-      animation: glow-shift 12s infinite alternate;
+      text-shadow: 0 0 100px var(--gold-glow), 0 0 180px var(--gold-glow);
+      animation: glow-shift 15s infinite alternate;
     }
     @keyframes glow-shift {
-      0%   { text-shadow: 0 0 40px var(--gold-glow); }
-      50%  { text-shadow: 0 0 120px var(--gold-glow), 0 0 180px var(--gold-glow); }
-      100% { text-shadow: 0 0 60px var(--gold-glow); }
+      0%   { text-shadow: 0 0 60px var(--gold-glow); }
+      50%  { text-shadow: 0 0 160px var(--gold-glow), 0 0 240px var(--gold-glow); }
+      100% { text-shadow: 0 0 80px var(--gold-glow); }
     }
     .fade-up {
       opacity: 0;
-      transform: translateY(140px);
-      transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(200px) scale(0.92);
+      transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .fade-up.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
+    }
+    .particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: transparent;
+      z-index: -1;
     }
   </style>
 </head>
 <body>
 
-  <main class="flex-1 flex flex-col items-center justify-center p-8 md:p-16 relative">
+  <!-- Частицы (золотая пыль) -->
+  <div class="particles" id="particles"></div>
+
+  <main class="relative z-10 flex flex-col items-center justify-center min-h-screen p-8 md:p-16">
     
     <!-- Лого -->
-    <div class="mb-16 md:mb-24 fade-up" style="animation-delay: 0.4s;">
+    <div class="mb-20 md:mb-32 fade-up" style="animation-delay: 0.4s;">
       <img src="assets/logo.png" alt="Baraka Residence" class="logo">
     </div>
 
-    <!-- Главный заголовок -->
-    <h1 class="fade-up" style="animation-delay: 0.8s;">
+    <!-- Заголовок -->
+    <h1 class="fade-up text-center" style="animation-delay: 0.8s;">
       BARAKA
     </h1>
 
     <!-- Подзаголовок -->
-    <div class="text-5xl md:text-8xl lg:text-10xl font-light text-white/90 mb-12 md:mb-20 fade-up" style="animation-delay: 1.2s;">
+    <div class="text-6xl md:text-9xl lg:text-[12rem] font-light text-white/80 mb-16 md:mb-24 fade-up" style="animation-delay: 1.2s;">
       RESIDENCE
     </div>
 
     <!-- Описание + счётчик -->
-    <div class="text-center max-w-4xl mx-auto mb-16 md:mb-24 fade-up" style="animation-delay: 1.6s;">
-      <p class="text-2xl md:text-4xl lg:text-5xl font-light text-white/80 leading-relaxed mb-8 md:mb-12">
-        Navoiydagi eng hashamatli turar joy majmuasi<br>
-        Premium sifat · Tayyor xonadonlar · Cheklangan seriya
+    <div class="glass-panel p-12 md:p-20 text-center max-w-5xl mx-auto fade-up" style="animation-delay: 1.6s;">
+      <p class="text-3xl md:text-5xl lg:text-6xl font-light leading-relaxed mb-12">
+        Navoiy shahrining eng hashamatli va zamonaviy majmuasi
       </p>
 
-      <div class="glass inline-block px-12 py-8 text-center">
-        <div class="text-6xl md:text-8xl font-black gold mb-2">
+      <div class="inline-block">
+        <div class="text-4xl md:text-6xl font-medium text-white/80 mb-4">
           QOLDI
         </div>
-        <div class="text-8xl md:text-10xl font-black gold">
-          19
+        <div class="text-9xl md:text-[14rem] font-black gold">
+          17
         </div>
-        <div class="text-3xl md:text-5xl font-medium mt-2">
-          ta xonadon
+        <div class="text-4xl md:text-6xl font-medium mt-4">
+          ta premium xonadon
         </div>
       </div>
     </div>
 
     <!-- Кнопки -->
-    <div class="flex flex-col md:flex-row gap-8 md:gap-12 fade-up" style="animation-delay: 2s;">
-      <a href="https://wa.me/+998900871111?text=Salom!%20Baraka%20Residence%20premium%20xonadonlari%20haqida%20to'liq%20ma'lumot%20va%20narxlar%20yuboring" 
-         class="glass px-16 py-8 text-3xl md:text-5xl font-bold gold-gradient rounded-3xl hover:scale-105 transition-transform duration-500 shadow-2xl">
+    <div class="flex flex-col md:flex-row gap-8 md:gap-16 mt-16 md:mt-24 fade-up" style="animation-delay: 2s;">
+      <a href="https://wa.me/+998900871111?text=Salom!%20Baraka%20Residence%20premium%20seriyasi%20haqida%20to'liq%20prezentatsiya%20va%20narxlar%20kerak" 
+         class="glass-panel px-16 py-10 text-3xl md:text-5xl font-bold gold-gradient rounded-3xl hover:scale-105 transition-transform duration-700 shadow-2xl">
         WhatsApp orqali bog'lanish
       </a>
 
       <a href="tel:+998900871111" 
-         class="glass px-16 py-8 text-3xl md:text-5xl font-medium text-white/90 rounded-3xl hover:scale-105 hover:bg-white/5 transition-all duration-500">
+         class="glass-panel px-16 py-10 text-3xl md:text-5xl font-medium text-white/90 rounded-3xl hover:scale-105 hover:bg-white/5 transition-all duration-700">
         Qo'ng'iroq qilish
       </a>
     </div>
-
   </main>
 
-  <!-- Нижний статус -->
-  <div class="text-center py-12 text-white/30 text-xl md:text-2xl tracking-widest fade-up" style="animation-delay: 2.4s;">
-    NAVOIY · 2026 · LIMITED EDITION
-  </div>
-
-  <!-- JS анимация появления -->
+  <!-- JS: анимация появления + частицы -->
   <script>
+    // Появление
     document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
-      }, 600);
+      }, 800);
     });
+
+    // Золотые частицы
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.style.position = 'fixed';
+      particle.style.width = '3px';
+      particle.style.height = '3px';
+      particle.style.background = 'linear-gradient(to bottom, #f5d577, #ffd700)';
+      particle.style.borderRadius = '50%';
+      particle.style.pointerEvents = 'none';
+      particle.style.zIndex = '1';
+      particle.style.opacity = Math.random() * 0.5 + 0.2;
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.top = Math.random() * 100 + 'vh';
+      particle.style.transform = `translateZ(${Math.random() * 200 - 100}px)`;
+      document.body.appendChild(particle);
+
+      const duration = Math.random() * 20 + 15;
+      particle.animate([
+        { transform: 'translateY(0) translateX(0)', opacity: particle.style.opacity },
+        { transform: 'translateY(-120vh) translateX(' + (Math.random() * 200 - 100) + 'px)', opacity: 0 }
+      ], {
+        duration: duration * 1000,
+        easing: 'linear',
+        iterations: 1
+      }).onfinish = () => particle.remove();
+
+      setTimeout(createParticle, Math.random() * 300 + 100);
+    }
+    for (let i = 0; i < 20; i++) createParticle();
   </script>
 
 </body>
