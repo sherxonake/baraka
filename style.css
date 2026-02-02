@@ -1,1 +1,69 @@
+/* Основные переменные */
+:root {
+  --gold: #d4af37;
+  --dark: #0a1428;
+  --dark-light: #0f1c3a;
+  --card-bg: #1a2a4a;
+}
 
+/* Глобальные стили */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* Лого анимация */
+.logo {
+  transition: all 0.6s ease;
+  filter: drop-shadow(0 10px 20px rgba(212, 175, 55, 0.25));
+}
+
+.logo:hover {
+  transform: scale(1.08) translateY(-8px);
+  filter: drop-shadow(0 20px 40px rgba(212, 175, 55, 0.45));
+}
+
+/* Анимация появления лого */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.logo {
+  animation: fadeInScale 1.6s ease-out forwards;
+}
+
+/* Карточки преимуществ */
+.advantage-card {
+  background: var(--card-bg);
+  padding: 2.5rem 1.75rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+.advantage-card:hover {
+  transform: translateY(-12px);
+  border-color: var(--gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+/* Золотой текст */
+.text-gold {
+  color: var(--gold);
+}
+
+/* Для мобилки отступы поменьше */
+@media (max-width: 640px) {
+  .advantage-card {
+    padding: 2rem 1.25rem;
+  }
+}
