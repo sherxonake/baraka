@@ -3,14 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Baraka Residence — Navoiy</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Baraka Residence — Navoiy shahrining premium majmuasi</title>
+  <meta name="description" content="Navoiy shahrining eng zamonaviy va hashamatli majmuasi. M² 7.5 mln so'mdan. Tayyor xonadonlar."/>
+  
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0a0c18;
+      --gold: #f0d19e;
+      --glow: rgba(240, 209, 158, 0.25);
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+    .glow-text {
+      text-shadow: 0 0 40px var(--glow);
+    }
+    .glass {
+      background: rgba(15, 20, 40, 0.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(240,209,158,0.15);
+      border-radius: 24px;
+      transition: all 0.4s ease;
+    }
+    .glass:hover {
+      transform: translateY(-12px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 60px rgba(240,209,158,0.25);
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body class="bg-[#0a0c18]">
 
-  <!-- Header -->
-  <header>
+  <!-- Header (меню) -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-lg border-b border-[var(--gold)]/10">
     <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
       <img src="assets/logo.png" alt="Baraka Residence" class="h-10 md:h-12">
       <nav class="hidden md:flex gap-10 text-lg">
@@ -19,15 +65,15 @@
         <a href="gallery.html" class="text-[var(--gold)] hover:text-white transition">Galereya</a>
         <a href="contact.html" class="text-[var(--gold)] hover:text-white transition">Bog'lanish</a>
       </nav>
-      <a href="https://wa.me/+998900871111?text=Salom!%20Baraka%20Residence%20haqida%20ma'lumot" 
+      <a href="https://t.me/barakaresidence" 
          class="bg-[var(--gold)] text-black px-6 py-3 rounded-full font-bold hover:scale-105 transition">
-        WhatsApp
+        Telegram
       </a>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="min-h-screen flex items-center justify-center px-6 md:px-12 py-20 text-center relative">
+  <section class="min-h-screen flex items-center justify-center px-6 md:px-12 py-20 text-center relative pt-24">
     <div class="max-w-5xl mx-auto fade-in" style="animation-delay: 0.3s;">
       <img src="assets/logo.png" alt="Baraka Residence" class="mx-auto w-64 md:w-80 lg:w-96 mb-12" />
       
@@ -40,9 +86,13 @@
       </p>
       
       <div class="flex flex-col md:flex-row gap-6 justify-center">
-        <a href="https://wa.me/+998900871111?text=Salom!%20Baraka%20Residence%20haqida%20ma'lumot%20oling" 
+        <a href="https://t.me/barakanavoiy" 
            class="bg-[var(--gold)] text-black px-10 py-5 rounded-full text-xl md:text-2xl font-bold hover:scale-105 transition">
-          WhatsApp orqali bog'lanish
+          Kanalga qo'shilish
+        </a>
+        <a href="https://t.me/barakaresidence" 
+           class="bg-[var(--gold)] text-black px-10 py-5 rounded-full text-xl md:text-2xl font-bold hover:scale-105 transition">
+          Telegram orqali yozish
         </a>
         <a href="tel:+998900871111" 
            class="border-2 border-[var(--gold)] text-[var(--gold)] px-10 py-5 rounded-full text-xl md:text-2xl font-bold hover:bg-[var(--gold)] hover:text-black transition">
@@ -81,6 +131,28 @@
       <img src="assets/you tube 16-9.png" alt="Стройка" class="rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500">
       <img src="assets/1-1 2.png" alt="Интерьер" class="rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500">
       <img src="assets/your-photo-3.png" alt="Вид" class="rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500">
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section class="py-16 px-6 md:px-12 text-center fade-in" style="animation-delay: 1.7s;">
+    <h2 class="text-4xl md:text-6xl font-bold text-[var(--gold)] mb-8">
+      Bog'laning
+    </h2>
+    <p class="text-xl md:text-2xl mb-8">
+      +998 90 087 11 11<br>
+      Telegram: @barakaresidence<br>
+      Kanal: @barakanavoiy
+    </p>
+    <div class="flex flex-col md:flex-row gap-6 justify-center">
+      <a href="https://t.me/barakaresidence" 
+         class="glass px-12 py-6 text-3xl font-bold text-[var(--gold)] rounded-full hover:scale-105 transition inline-block">
+        Telegram profil
+      </a>
+      <a href="https://t.me/barakanavoiy" 
+         class="glass px-12 py-6 text-3xl font-bold text-[var(--gold)] rounded-full hover:scale-105 transition inline-block">
+        Kanalga qo'shilish
+      </a>
     </div>
   </section>
 
