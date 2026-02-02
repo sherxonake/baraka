@@ -1,126 +1,133 @@
 <!DOCTYPE html>
-<html lang="uz" class="scroll-smooth">
+<html lang="uz">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Baraka Residence — Элитный уровень</title>
+  <title>Baraka Residence — Navoiy shahrining yangi yuzi</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Pro+Text:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --gold-start: #f0d19e;
-      --gold-end: #c9a96e;
-      --dark: #000000;
-      --glass: rgba(20, 20, 30, 0.45);
-      --glow: rgba(201, 169, 110, 0.25);
+      --navoi-blue: #0d1b3a;
+      --sand-gold: #c9a96e;
+      --marmar-white: #f8f1e9;
+      --glow: rgba(201, 169, 110, 0.22);
+      --kizilkum: #8d6e63;
     }
     body {
       margin: 0;
-      background: var(--dark);
-      color: white;
-      font-family: 'SF Pro Display', system-ui, sans-serif;
+      background: linear-gradient(to bottom, var(--navoi-blue), #0a1326);
+      color: var(--marmar-white);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
       overflow-x: hidden;
-      background-image: radial-gradient(circle at 20% 30%, rgba(201,169,110,0.08) 0%, transparent 40%),
-                        radial-gradient(circle at 80% 70%, rgba(201,169,110,0.06) 0%, transparent 50%);
-      background-attachment: fixed;
     }
-    .glass {
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(201,169,110,0.15);
-      border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    .serif { font-family: 'Playfair Display', serif; }
+    .gold { color: var(--sand-gold); }
+    .glow-text { text-shadow: 0 0 30px var(--glow), 0 0 60px var(--glow); }
+    .logo {
+      width: 180px;
+      filter: drop-shadow(0 0 30px var(--glow));
+      transition: all 1s ease;
     }
-    .gold-gradient {
-      background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .logo:hover {
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 60px var(--glow));
     }
-    .glow-text {
-      text-shadow: 0 0 30px var(--glow), 0 0 60px var(--glow);
-    }
-    .parallax {
-      perspective: 1500px;
-    }
-    .parallax > * {
-      transform-style: preserve-3d;
-    }
-    .animate-float {
-      animation: float 12s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
-      50%      { transform: translate3d(0, -30px, 50px) rotateX(3deg) rotateY(5deg); }
-    }
-    .fade-in {
+    .fade-in-up {
       opacity: 0;
-      transform: translateY(80px);
-      transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(100px);
+      transition: all 1.4s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .fade-in.visible {
+    .fade-in-up.visible {
       opacity: 1;
       transform: translateY(0);
     }
+    .glass {
+      background: rgba(13, 27, 58, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(201, 169, 110, 0.18);
+      border-radius: 20px;
+    }
+    .pattern-bg {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a96e' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
   </style>
 </head>
-<body class="parallax min-h-screen flex flex-col items-center justify-center p-6 md:p-12">
+<body class="pattern-bg">
 
-  <!-- Главный блок -->
-  <div class="text-center max-w-5xl mx-auto relative z-10">
-    <div class="logo-container mb-16 md:mb-24 animate-float">
-      <img 
-        src="assets/logo.png" 
-        alt="Baraka Residence" 
-        class="mx-auto w-64 md:w-80 lg:w-96 filter drop-shadow-[0_0_60px_rgba(201,169,110,0.4)]"
-      />
+  <main class="min-h-screen flex flex-col items-center justify-center px-6 md:px-12 py-20 relative">
+    
+    <!-- Лого + главный заголовок -->
+    <div class="text-center mb-16 md:mb-24">
+      <img src="assets/logo.png" alt="Baraka Residence" class="mx-auto logo mb-12 md:mb-16 fade-in-up" style="animation-delay: 0.2s;">
+      
+      <h1 class="text-6xl sm:text-8xl md:text-10xl lg:text-[12rem] font-black leading-none gold glow-text mb-6 md:mb-8 fade-in-up" style="animation-delay: 0.5s;">
+        BARAKA
+      </h1>
+      
+      <h2 class="text-4xl sm:text-6xl md:text-8xl font-light text-white/95 serif mb-10 md:mb-16 fade-in-up" style="animation-delay: 0.8s;">
+        RESIDENCE
+      </h2>
+      
+      <p class="text-xl md:text-3xl lg:text-4xl font-light max-w-5xl mx-auto leading-relaxed opacity-90 fade-in-up" style="animation-delay: 1.1s;">
+        Navoiy shahrining yangi ramzi —<br class="md:hidden">
+        <span class="gold">o'zbekona hashamat</span> va zamonaviy hayot uyg'unligi
+      </p>
     </div>
 
-    <h1 class="text-6xl sm:text-8xl md:text-10xl lg:text-[12rem] font-black leading-none gold-gradient glow-text mb-6 md:mb-10 fade-in">
-      BARAKA
-    </h1>
+    <!-- Ключевые цифры / статусы -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 max-w-6xl mx-auto w-full mb-20 md:mb-32 fade-in-up" style="animation-delay: 1.4s;">
+      <div class="glass p-10 md:p-12 text-center">
+        <div class="text-6xl md:text-7xl font-black gold mb-4">16</div>
+        <p class="text-2xl md:text-3xl font-medium">qavatli majmua</p>
+      </div>
+      
+      <div class="glass p-10 md:p-12 text-center">
+        <div class="text-6xl md:text-7xl font-black gold mb-4">7.5</div>
+        <p class="text-2xl md:text-3xl font-medium">mln so'm / m²</p>
+      </div>
+      
+      <div class="glass p-10 md:p-12 text-center">
+        <div class="text-6xl md:text-7xl font-black gold mb-4">2026</div>
+        <p class="text-2xl md:text-3xl font-medium">yil kalit topshirish</p>
+      </div>
+    </div>
 
-    <h2 class="text-5xl sm:text-7xl md:text-9xl font-light text-white/90 mb-12 md:mb-16 fade-in" style="animation-delay: 0.4s;">
-      RESIDENCE
-    </h2>
-
-    <p class="text-2xl md:text-4xl lg:text-5xl font-light text-white/70 max-w-4xl mx-auto mb-16 md:mb-24 fade-in" style="animation-delay: 0.7s;">
-      Эксклюзивные резиденции премиум-класса<br class="hidden md:block">
-      в сердце Навои · от 7.5 млн сум/м²
-    </p>
-
-    <div class="flex flex-col sm:flex-row gap-6 md:gap-10 justify-center fade-in" style="animation-delay: 1s;">
-      <a href="https://wa.me/+998900871111?text=Здравствуйте! Хочу полную презентацию Baraka Residence" 
-         class="glass px-10 py-6 text-2xl md:text-3xl font-medium gold-gradient rounded-3xl hover:scale-105 transition-transform duration-500 shadow-2xl">
-        Забронировать сейчас
+    <!-- Кнопки действия -->
+    <div class="flex flex-col sm:flex-row gap-6 md:gap-10 justify-center fade-in-up" style="animation-delay: 1.7s;">
+      <a href="https://wa.me/+998900871111?text=Salom!%20Baraka%20Residence%20haqida%20to'liq%20ma'lumot%20oling" 
+         class="glass px-12 py-6 text-2xl md:text-3xl font-medium gold-gradient rounded-3xl hover:scale-105 transition-transform duration-500 shadow-2xl">
+        WhatsApp orqali bog'lanish
       </a>
       
       <a href="tel:+998900871111" 
-         class="glass px-10 py-6 text-2xl md:text-3xl font-medium text-white/90 rounded-3xl hover:scale-105 hover:bg-white/10 transition-all duration-500">
-        Связаться
+         class="glass px-12 py-6 text-2xl md:text-3xl font-medium text-white/90 rounded-3xl hover:scale-105 hover:bg-white/10 transition-all duration-500">
+        Qo'ng'iroq qilish
       </a>
     </div>
+
+  </main>
+
+  <!-- Нижний статус -->
+  <div class="text-center py-12 text-white/40 text-lg md:text-xl tracking-wider fade-in-up" style="animation-delay: 2s;">
+    NAVOIY · O'ZBEKISTON · YANGI DAVR
   </div>
 
-  <!-- Нижний текст-акцент -->
-  <div class="absolute bottom-12 left-0 right-0 text-center text-white/40 text-sm md:text-base tracking-widest fade-in" style="animation-delay: 1.5s;">
-    LIMITED EDITION · 2026
-  </div>
-
-  <!-- JS для появления при загрузке -->
+  <!-- JS для появления -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
-        document.querySelectorAll('.fade-in').forEach(el => {
-          el.classList.add('visible');
-        });
-      }, 300);
+        document.querySelectorAll('.fade-in-up').forEach(el => el.classList.add('visible'));
+      }, 400);
     });
   </script>
+
 </body>
 </html>
