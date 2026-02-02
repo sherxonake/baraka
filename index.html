@@ -16,7 +16,9 @@
     :root {
       --bg: #0a0c18;
       --gold: #f0d19e;
-      --glow: rgba(240, 209, 158, 0.25);
+      --glow: rgba(240, 209, 158, 0.35);
+      --red: #ef4444;
+      --red-glow: rgba(239, 68, 68, 0.4);
     }
     body {
       margin: 0;
@@ -66,6 +68,18 @@
       0%, 100% { background: rgba(239, 68, 68, 0.1); }
       50% { background: rgba(239, 68, 68, 0.3); }
     }
+    /* Кнопки Телеграм - золотые, текст тёмный, чтобы вписывались */
+    .btn-telegram {
+      background: var(--gold);
+      color: #0a0c18;
+      box-shadow: 0 10px 30px rgba(240,209,158,0.3);
+    }
+    .btn-telegram:hover {
+      background: #fff;
+      color: #0a0c18;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(240,209,158,0.5);
+    }
   </style>
 </head>
 <body class="bg-[#0a0c18]">
@@ -87,7 +101,7 @@
 
       <!-- Кнопка Telegram (десктоп) -->
       <a href="https://t.me/barakaresidence" 
-         class="bg-gold text-black px-5 py-2.5 rounded-full text-base font-bold hover:scale-105 transition hidden md:block">
+         class="btn-telegram px-5 py-2.5 rounded-full text-base font-bold hover:scale-105 transition hidden md:block">
         Telegram
       </a>
 
@@ -131,11 +145,11 @@
       
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="https://t.me/barakanavoiy" 
-           class="bg-gold text-black px-8 py-4 rounded-full text-lg sm:text-xl font-bold hover:scale-105 transition">
+           class="btn-telegram px-8 py-4 text-lg sm:text-xl font-bold rounded-full hover:scale-105 transition">
           Kanalga qo'shilish
         </a>
         <a href="https://t.me/barakaresidence" 
-           class="bg-gold text-black px-8 py-4 rounded-full text-lg sm:text-xl font-bold hover:scale-105 transition">
+           class="btn-telegram px-8 py-4 text-lg sm:text-xl font-bold rounded-full hover:scale-105 transition">
           Telegram orqali yozish
         </a>
         <a href="tel:+998900871111" 
