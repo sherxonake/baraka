@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
   // Плавный скролл к якорям
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Анимация появления блоков
+  // Анимация появления
   const fadeElements = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
