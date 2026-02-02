@@ -4,65 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Baraka Residence — Navoiy shahrining premium majmuasi</title>
-  <meta name="description" content="Navoiy shahrining eng zamonaviy va hashamatli turar joy majmuasi. M² 7.5 mln so'mdan. Tayyor xonadonlar."/>
   
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg: #0a0c18;
-      --gold: #f0d19e;
-      --glow: rgba(240, 209, 158, 0.25);
-    }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: white;
-      font-family: 'Inter', sans-serif;
-    }
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-    }
-    .glow-text {
-      text-shadow: 0 0 40px var(--glow);
-    }
-    .glass {
-      background: rgba(15, 20, 40, 0.6);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(240,209,158,0.15);
-      border-radius: 24px;
-      transition: all 0.4s ease;
-    }
-    .glass:hover {
-      transform: translateY(-12px);
-      border-color: var(--gold);
-      box-shadow: 0 20px 60px rgba(240,209,158,0.25);
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
 </head>
-<body class="bg-[#0a0c18]">
+<body>
 
-  <!-- Sticky Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-lg border-b border-[var(--gold)]/10">
+  <!-- Header -->
+  <header>
     <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
       <img src="assets/logo.png" alt="Baraka Residence" class="h-10 md:h-12">
       <nav class="hidden md:flex gap-10 text-lg">
-        <a href="#advantages" class="text-[var(--gold)] hover:text-white transition">Afzalliklar</a>
-        <a href="#gallery" class="text-[var(--gold)] hover:text-white transition">Galereya</a>
-        <a href="#contact" class="text-[var(--gold)] hover:text-white transition">Bog'lanish</a>
+        <a href="index.html" class="text-[var(--gold)] hover:text-white transition">Bosh sahifa</a>
+        <a href="plans.html" class="text-[var(--gold)] hover:text-white transition">Plandagi xonadonlar</a>
+        <a href="gallery.html" class="text-[var(--gold)] hover:text-white transition">Galereya</a>
+        <a href="contact.html" class="text-[var(--gold)] hover:text-white transition">Bog'lanish</a>
       </nav>
       <a href="https://wa.me/+998900871111?text=Salom!%20Baraka%20Residence%20haqida%20ma'lumot" 
          class="bg-[var(--gold)] text-black px-6 py-3 rounded-full font-bold hover:scale-105 transition">
@@ -72,11 +28,11 @@
   </header>
 
   <!-- Hero -->
-  <section class="min-h-screen flex items-center justify-center px-6 md:px-12 py-20 text-center">
-    <div class="max-w-5xl mx-auto fade-in" style="animation-delay: 0.3s;">
+  <section class="min-h-screen flex items-center justify-center px-6 md:px-12 text-center relative">
+    <div class="max-w-5xl mx-auto fade-in">
       <img src="assets/logo.png" alt="Baraka Residence" class="mx-auto w-64 md:w-80 lg:w-96 mb-12" />
       
-      <h1 class="text-5xl md:text-8xl lg:text-10xl font-black gold glow-text mb-8">
+      <h1 class="text-5xl md:text-8xl lg:text-10xl font-black text-[var(--gold)] glow-text mb-8">
         BARAKA RESIDENCE
       </h1>
       
@@ -102,19 +58,19 @@
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="glass p-10 text-center fade-in" style="animation-delay: 0.9s;">
         <div class="text-7xl mb-6">🏛️</div>
-        <h3 class="text-3xl font-bold gold mb-4">Zamonaviy dizayn</h3>
+        <h3 class="text-3xl font-bold text-[var(--gold)] mb-4">Zamonaviy dizayn</h3>
         <p class="text-lg text-white/80">16 qavat, yuqori shiftlar, panoramali derazalar.</p>
       </div>
 
       <div class="glass p-10 text-center fade-in" style="animation-delay: 1.0s;">
         <div class="text-7xl mb-6">🔑</div>
-        <h3 class="text-3xl font-bold gold mb-4">To'liq tayyor</h3>
+        <h3 class="text-3xl font-bold text-[var(--gold)] mb-4">To'liq tayyor</h3>
         <p class="text-lg text-white/80">Kalit topshirish 2026 yil oxiri — remont bilan.</p>
       </div>
 
       <div class="glass p-10 text-center fade-in" style="animation-delay: 1.1s;">
         <div class="text-7xl mb-6">💰</div>
-        <h3 class="text-3xl font-bold gold mb-4">Arzon narx</h3>
+        <h3 class="text-3xl font-bold text-[var(--gold)] mb-4">Arzon narx</h3>
         <p class="text-lg text-white/80">M² 7.5 mln so'm • Rassrochka • Ipoteka.</p>
       </div>
     </div>
@@ -131,7 +87,7 @@
 
   <!-- Контакты -->
   <section class="py-16 px-6 md:px-12 text-center fade-in" style="animation-delay: 1.7s;">
-    <h2 class="text-4xl md:text-6xl font-bold gold mb-8">
+    <h2 class="text-4xl md:text-6xl font-bold text-[var(--gold)] mb-8">
       Bog'laning
     </h2>
     <p class="text-xl md:text-2xl mb-8">
@@ -144,13 +100,6 @@
     </a>
   </section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
-      }, 300);
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
