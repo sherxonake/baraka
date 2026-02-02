@@ -3,183 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Baraka Residence — Elite Living in Navoi</title>
-  <meta name="description" content="Luxury residences in the heart of Navoi. Starting from 7.5 mln UZS/m². Ready-to-move-in homes. Limited availability."/>
+  <title>Baraka Residence — Элитный уровень</title>
   
-  <!-- Tailwind + DaisyUI -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   
-  <!-- Шрифты — премиум уровень (как в Дубае) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Pro+Text:wght@400;500;600&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --gold: #c9a96e;
-      --dark: #0a0d14;
-      --charcoal: #11151f;
+      --gold-start: #f0d19e;
+      --gold-end: #c9a96e;
+      --dark: #000000;
+      --glass: rgba(20, 20, 30, 0.45);
       --glow: rgba(201, 169, 110, 0.25);
     }
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--dark);
-      color: #f5f5f5;
       margin: 0;
+      background: var(--dark);
+      color: white;
+      font-family: 'SF Pro Display', system-ui, sans-serif;
       overflow-x: hidden;
+      background-image: radial-gradient(circle at 20% 30%, rgba(201,169,110,0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(201,169,110,0.06) 0%, transparent 50%);
+      background-attachment: fixed;
     }
-    h1, h2, h3, .serif {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
+    .glass {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
     }
-    .gold-text { color: var(--gold); }
-    .gold-glow {
-      text-shadow: 0 0 20px var(--glow), 0 0 40px var(--glow);
+    .gold-gradient {
+      background: linear-gradient(135deg, var(--gold-start), var(--gold-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .logo {
-      max-width: 220px;
-      filter: drop-shadow(0 10px 25px var(--glow));
-      transition: all 0.8s ease;
+    .glow-text {
+      text-shadow: 0 0 30px var(--glow), 0 0 60px var(--glow);
     }
-    .logo:hover {
-      transform: scale(1.05) rotate(2deg);
-      filter: drop-shadow(0 20px 50px var(--glow));
+    .parallax {
+      perspective: 1500px;
     }
-    .parallax-bg {
-      background: linear-gradient(to bottom, #0a0d14, #11151f),
-                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85') center/cover no-repeat fixed;
-      background-blend-mode: overlay;
+    .parallax > * {
+      transform-style: preserve-3d;
     }
-    .fade-in-up {
+    .animate-float {
+      animation: float 12s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
+      50%      { transform: translate3d(0, -30px, 50px) rotateX(3deg) rotateY(5deg); }
+    }
+    .fade-in {
       opacity: 0;
-      transform: translateY(60px);
-      transition: all 1.2s ease-out;
+      transform: translateY(80px);
+      transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .fade-in-up.visible {
+    .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
   </style>
 </head>
-<body class="parallax-bg">
+<body class="parallax min-h-screen flex flex-col items-center justify-center p-6 md:p-12">
 
-  <!-- Sticky Header — минималистичный и дорогой -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-xl border-b border-[var(--gold)]/10">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-5 flex justify-between items-center">
-      <img src="assets/logo.png" alt="Baraka Residence" class="logo h-10 md:h-12">
-      <div class="hidden md:flex gap-10 text-sm uppercase tracking-widest">
-        <a href="#advantages" class="text-[var(--gold)] hover:text-white transition">Преимущества</a>
-        <a href="#gallery" class="text-[var(--gold)] hover:text-white transition">Галерея</a>
-        <a href="#contact" class="text-[var(--gold)] hover:text-white transition">Связаться</a>
-      </div>
-      <a href="https://wa.me/+998900871111?text=Здравствуйте!%20Хочу%20узнать%20о%20Baraka%20Residence" 
-         class="btn btn-sm bg-[var(--gold)] text-black font-semibold rounded-full px-8 hover:scale-105 transition">
-        Связаться в WhatsApp
-      </a>
-    </div>
-  </header>
-
-  <!-- Hero — чистый, мощный, статусный -->
-  <section class="min-h-screen flex items-center justify-center relative px-6 lg:px-12 pt-24">
-    <div class="absolute inset-0 bg-black/60"></div>
-
-    <div class="relative z-10 text-center max-w-5xl mx-auto">
+  <!-- Главный блок -->
+  <div class="text-center max-w-5xl mx-auto relative z-10">
+    <div class="logo-container mb-16 md:mb-24 animate-float">
       <img 
         src="assets/logo.png" 
         alt="Baraka Residence" 
-        class="mx-auto mb-12 md:mb-16 logo"
+        class="mx-auto w-64 md:w-80 lg:w-96 filter drop-shadow-[0_0_60px_rgba(201,169,110,0.4)]"
       />
-      
-      <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold gold-glow mb-6 md:mb-10 tracking-tight">
-        BARAKA RESIDENCE
-      </h1>
-      
-      <p class="text-2xl sm:text-4xl md:text-5xl text-[var(--gold)] font-light mb-12 md:mb-16 serif">
-        Элитный уровень жизни в Навои
-      </p>
-      
-      <p class="text-lg md:text-2xl max-w-4xl mx-auto mb-16 md:mb-20 leading-relaxed opacity-90">
-        Ограниченная коллекция резиденций премиум-класса • От 7.5 млн сум за м² • Полностью готовые квартиры •  
-        Инвестиция в будущее вашей семьи — осталось совсем немного.
-      </p>
-      
-      <div class="flex flex-col md:flex-row gap-6 justify-center">
-        <a href="https://wa.me/+998900871111?text=Здравствуйте!%20Интересует%20Baraka%20Residence" 
-           class="btn btn-lg bg-[var(--gold)] text-black font-bold rounded-full px-12 hover:scale-105 transition-transform shadow-2xl shadow-[var(--gold)]/40">
-          Забронировать сейчас
-        </a>
-        <a href="#advantages" 
-           class="btn btn-lg btn-outline border-[var(--gold)] text-[var(--gold)] font-bold rounded-full px-12 hover:bg-[var(--gold)] hover:text-black transition-all">
-          Узнать больше
-        </a>
-      </div>
     </div>
-  </section>
 
-  <!-- Преимущества — крупные, статусные карточки -->
-  <section id="advantages" class="py-24 lg:py-32 px-6 lg:px-12 bg-black/40">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-5xl md:text-7xl font-bold text-center mb-20 md:mb-24 gold-glow">
-        Почему выбирают Baraka
-      </h2>
+    <h1 class="text-6xl sm:text-8xl md:text-10xl lg:text-[12rem] font-black leading-none gold-gradient glow-text mb-6 md:mb-10 fade-in">
+      BARAKA
+    </h1>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-        <div class="card bg-gradient-to-b from-[#111827] to-black border border-[var(--gold)]/20 hover:border-[var(--gold)] hover:scale-[1.02] transition-all duration-700 shadow-2xl">
-          <div class="card-body p-10 lg:p-12 text-center">
-            <div class="text-8xl mb-8">🏛️</div>
-            <h3 class="text-3xl font-bold text-[var(--gold)] mb-6">Архитектура премиум-класса</h3>
-            <p class="text-gray-300 text-lg">16 этажей современного дизайна, высокие потолки, панорамные окна, отделка натуральными материалами.</p>
-          </div>
-        </div>
+    <h2 class="text-5xl sm:text-7xl md:text-9xl font-light text-white/90 mb-12 md:mb-16 fade-in" style="animation-delay: 0.4s;">
+      RESIDENCE
+    </h2>
 
-        <div class="card bg-gradient-to-b from-[#111827] to-black border border-[var(--gold)]/20 hover:border-[var(--gold)] hover:scale-[1.02] transition-all duration-700 shadow-2xl">
-          <div class="card-body p-10 lg:p-12 text-center">
-            <div class="text-8xl mb-8">🔑</div>
-            <h3 class="text-3xl font-bold text-[var(--gold)] mb-6">Готовность 100%</h3>
-            <p class="text-gray-300 text-lg">Ключи в 2026 году — полная отделка, умный дом, премиум-инженерия, без дополнительных вложений.</p>
-          </div>
-        </div>
+    <p class="text-2xl md:text-4xl lg:text-5xl font-light text-white/70 max-w-4xl mx-auto mb-16 md:mb-24 fade-in" style="animation-delay: 0.7s;">
+      Эксклюзивные резиденции премиум-класса<br class="hidden md:block">
+      в сердце Навои · от 7.5 млн сум/м²
+    </p>
 
-        <div class="card bg-gradient-to-b from-[#111827] to-black border border-[var(--gold)]/20 hover:border-[var(--gold)] hover:scale-[1.02] transition-all duration-700 shadow-2xl">
-          <div class="card-body p-10 lg:p-12 text-center">
-            <div class="text-8xl mb-8">💎</div>
-            <h3 class="text-3xl font-bold text-[var(--gold)] mb-6">Инвестиционная ценность</h3>
-            <p class="text-gray-300 text-lg">От 7.5 млн сум/м² • Рассрочка до 18 месяцев • Ипотека • Рост стоимости 25–40% в год.</p>
-          </div>
-        </div>
-      </div>
+    <div class="flex flex-col sm:flex-row gap-6 md:gap-10 justify-center fade-in" style="animation-delay: 1s;">
+      <a href="https://wa.me/+998900871111?text=Здравствуйте! Хочу полную презентацию Baraka Residence" 
+         class="glass px-10 py-6 text-2xl md:text-3xl font-medium gold-gradient rounded-3xl hover:scale-105 transition-transform duration-500 shadow-2xl">
+        Забронировать сейчас
+      </a>
+      
+      <a href="tel:+998900871111" 
+         class="glass px-10 py-6 text-2xl md:text-3xl font-medium text-white/90 rounded-3xl hover:scale-105 hover:bg-white/10 transition-all duration-500">
+        Связаться
+      </a>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer — лаконичный и статусный -->
-  <footer class="py-16 text-center bg-black border-t border-[var(--gold)]/10">
-    <p class="text-xl text-[var(--gold)] font-medium mb-4">Baraka Residence</p>
-    <p class="text-gray-400 mb-6">Эксклюзивные резиденции в Навои</p>
-    <p class="text-2xl text-white mb-4">+998 90 087 11 11</p>
-    <p class="text-gray-500">@barakaresidence.uz</p>
-  </footer>
+  <!-- Нижний текст-акцент -->
+  <div class="absolute bottom-12 left-0 right-0 text-center text-white/40 text-sm md:text-base tracking-widest fade-in" style="animation-delay: 1.5s;">
+    LIMITED EDITION · 2026
+  </div>
 
-  <!-- Встроенный JS — плавный скролл + анимации при скролле -->
+  <!-- JS для появления при загрузке -->
   <script>
-    // Плавный скролл
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => {
+          el.classList.add('visible');
+        });
+      }, 300);
     });
-
-    // Анимация появления при скролле
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in-up');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('.animate-fadeInUp').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
