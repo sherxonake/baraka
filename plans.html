@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plandagi xonadonlar — Baraka Residence</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0a0c18]">
+
+  <!-- Header (тот же самый) -->
+  <header>
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <img src="assets/logo.png" alt="Baraka Residence" class="h-10 md:h-12">
+      <nav class="hidden md:flex gap-10 text-lg">
+        <a href="index.html" class="text-[var(--gold)] hover:text-white transition">Bosh sahifa</a>
+        <a href="plans.html" class="text-[var(--gold)] hover:text-white transition">Plandagi xonadonlar</a>
+        <a href="gallery.html" class="text-[var(--gold)] hover:text-white transition">Galereya</a>
+        <a href="contact.html" class="text-[var(--gold)] hover:text-white transition">Bog'lanish</a>
+      </nav>
+      <a href="https://wa.me/+998900871111?text=Salom!%20Baraka%20Residence%20haqida%20ma'lumot" 
+         class="bg-[var(--gold)] text-black px-6 py-3 rounded-full font-bold hover:scale-105 transition">
+        WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <section class="py-24 px-6 md:px-12">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-black text-[var(--gold)] text-center mb-16 glow-text">
+        Plandagi xonadonlar
+      </h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="glass p-8 text-center fade-in">
+          <img src="assets/plan-1.png" alt="1-xonali" class="rounded-xl mb-6 w-full h-48 object-cover">
+          <h3 class="text-2xl font-bold gold mb-4">1-xonali (38 m²)</h3>
+          <p class="text-xl mb-4">Narxi: 285 mln so'm</p>
+          <p class="text-lg text-white/80">Tayyor remont, balkon, smart-home</p>
+        </div>
+
+        <div class="glass p-8 text-center fade-in" style="animation-delay: 0.2s;">
+          <img src="assets/plan-2.png" alt="2-xonali" class="rounded-xl mb-6 w-full h-48 object-cover">
+          <h3 class="text-2xl font-bold gold mb-4">2-xonali (62 m²)</h3>
+          <p class="text-xl mb-4">Narxi: 465 mln so'm</p>
+          <p class="text-lg text-white/80">2 yotoq xonasi, katta oshxona, 2 sanuzel</p>
+        </div>
+
+        <div class="glass p-8 text-center fade-in" style="animation-delay: 0.4s;">
+          <img src="assets/plan-3.png" alt="3-xonali" class="rounded-xl mb-6 w-full h-48 object-cover">
+          <h3 class="text-2xl font-bold gold mb-4">3-xonali (85 m²)</h3>
+          <p class="text-xl mb-4">Narxi: 637 mln so'm</p>
+          <p class="text-lg text-white/80">Katta oila uchun, 3 yotoq xonasi, balkon</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-16">
+        <a href="contact.html" class="bg-[var(--gold)] text-black px-12 py-6 rounded-full text-3xl font-bold hover:scale-105 transition inline-block">
+          Xonadon tanlash va band qilish
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
