@@ -1,4 +1,15 @@
+// script.js
 document.addEventListener('DOMContentLoaded', () => {
+  // Гамбургер меню на мобильке
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
   // Плавный скролл к якорям
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -9,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Анимация появления
+  // Анимация появления блоков
   const fadeElements = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
