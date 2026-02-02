@@ -1,100 +1,183 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="uz" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Baraka Residence | Barakali Xonadonda Barakali Xayot</title>
-  <meta name="description" content="Navoiydagi yangi turar joy majmuasi. M² 7.5 mln so'mdan. 100% tayyor xonadonlar. +998 90 087 11 11"/>
+  <title>Baraka Residence — Yangi hayot darajasi</title>
+  <meta name="description" content="Navoiydagi eng zamonaviy 16 qavatli majmua. M² 7.5 mln so'mdan. Tayyor xonadonlar. Shoshiling!"/>
   
+  <!-- Tailwind + DaisyUI -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --gold: #d4af37;
+      --dark: #0a0f1f;
+      --dark-2: #111827;
+      --glow: rgba(212, 175, 55, 0.35);
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--dark);
+      color: white;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+    }
+    .gold-glow {
+      text-shadow: 0 0 20px var(--glow), 0 0 40px var(--glow);
+    }
+    .logo {
+      max-width: 280px;
+      height: auto;
+      filter: drop-shadow(0 10px 20px var(--glow));
+      transition: all 0.6s ease;
+    }
+    .logo:hover {
+      transform: scale(1.08) translateY(-8px);
+      filter: drop-shadow(0 20px 40px var(--glow));
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(60px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 20px var(--glow); }
+      50%      { text-shadow: 0 0 50px var(--glow), 0 0 80px var(--glow); }
+    }
+    .animate-glow-pulse {
+      animation: glowPulse 4s infinite alternate;
+    }
+    .animate-fadeInUp { animation: fadeInUp 1.2s ease-out forwards; }
+  </style>
 </head>
-<body class="bg-[#0b162b] text-white font-sans antialiased">
+<body>
 
-  <!-- Hero -->
-  <header class="min-h-screen flex items-center justify-center text-center px-4 relative">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0b162b] via-[#0f1c3a] to-[#0b162b] opacity-90"></div>
-    
-    <div class="relative z-10 max-w-5xl mx-auto">
-      <img 
-        src="assets/logo.png" 
-        alt="Baraka Residence" 
-        class="mx-auto mb-8 w-48 sm:w-56 md:w-64 lg:w-72"
-        loading="lazy"
-      />
-      
-      <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6 tracking-tight">
-        BARAKA RESIDENCE
-      </h1>
-      
-      <p class="text-2xl sm:text-3xl md:text-4xl text-[#d4af37] font-medium mb-10">
-        BARAKALI XONADONDA<br class="sm:hidden"> BARAKALI XAYOT
-      </p>
-      
-      <p class="text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto mb-12 leading-relaxed opacity-90">
-        Navoiy shahridagi zamonaviy 16 qavatli majmua • M² atigi 7.5 mln so'mdan •  
-        100% tayyor holatda • Cheklangan xonadonlar qoldi — shoshiling!
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="https://wa.me/+998900871111?text=Salom%2C%20Baraka%20Residence%20haqida%20ma'lumot%20oling" 
-           class="bg-[#d4af37] text-black px-10 py-5 rounded-xl text-xl font-bold hover:bg-yellow-300 transition-all duration-300 shadow-lg shadow-[#d4af37]/30">
-          WhatsApp orqali bog'lanish
-        </a>
-        <a href="#advantages" 
-           class="border-2 border-[#d4af37] text-[#d4af37] px-10 py-5 rounded-xl text-xl font-bold hover:bg-[#d4af37] hover:text-black transition-all duration-300">
-          Afzalliklarni ko'rish
-        </a>
+  <!-- Sticky Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-lg border-b border-[var(--gold)]/20">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <img src="assets/logo.png" alt="Logo" class="h-10 md:h-12">
+      <div class="flex gap-6 items-center">
+        <a href="#advantages" class="text-[var(--gold)] hover:text-white transition">Afzalliklar</a>
+        <a href="#gallery" class="text-[var(--gold)] hover:text-white transition">Galereya</a>
+        <a href="#contact" class="btn btn-sm bg-[var(--gold)] text-black font-bold rounded-full px-6 hover:scale-105 transition">Bog'lanish</a>
       </div>
     </div>
   </header>
 
+  <!-- Hero -->
+  <section class="min-h-screen flex items-center justify-center relative px-4 md:px-8 pt-20">
+    <div class="absolute inset-0 bg-gradient-to-br from-[var(--dark)] via-[var(--dark-2)] to-[var(--dark)] opacity-90"></div>
+
+    <div class="relative z-10 text-center max-w-6xl mx-auto">
+      <img 
+        src="assets/logo.png" 
+        alt="Baraka Residence" 
+        class="mx-auto mb-10 logo"
+      />
+      
+      <h1 class="text-6xl md:text-8xl lg:text-9xl font-black gold-glow animate-glow-pulse mb-6">
+        BARAKA RESIDENCE
+      </h1>
+      
+      <p class="text-3xl md:text-5xl text-[var(--gold)] mb-12 animate-fadeInUp" style="animation-delay: 0.4s;">
+        Barakali xonadonda barakali xayot
+      </p>
+      
+      <p class="text-xl md:text-2xl max-w-4xl mx-auto mb-16 opacity-90 animate-fadeInUp" style="animation-delay: 0.6s;">
+        Navoiy shahridagi eng zamonaviy majmua • M² 7.5 mln so'mdan • 100% tayyor • Cheklangan xonadonlar qoldi — hozir band qiling!
+      </p>
+      
+      <div class="flex flex-col md:flex-row gap-6 justify-center animate-fadeInUp" style="animation-delay: 0.8s;">
+        <a href="https://wa.me/+998900871111?text=Salom!%20Baraka%20Residence%20haqida%20ma'lumot" 
+           class="btn btn-lg bg-[var(--gold)] text-black font-bold rounded-full px-12 hover:scale-105 transition-transform shadow-2xl shadow-[var(--gold)]/50">
+          WhatsApp orqali bog'lanish
+        </a>
+        <a href="#contact" 
+           class="btn btn-lg btn-outline border-[var(--gold)] text-[var(--gold)] font-bold rounded-full px-12 hover:bg-[var(--gold)] hover:text-black transition-all">
+          Xonadon tanlash
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Преимущества -->
-  <section id="advantages" class="py-20 px-6 md:px-12 bg-[#0b162b]">
+  <section id="advantages" class="py-24 px-6 md:px-12 bg-gradient-to-b from-[var(--dark)] to-[var(--dark-2)]">
     <div class="max-w-7xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-[#d4af37]">
-        Bizning afzalliklarimiz
+      <h2 class="text-5xl md:text-7xl font-black text-center mb-20 text-[var(--gold)] gold-glow">
+        Nima uchun biz tanlov bo'lishimiz kerak?
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-[#11203f] p-8 rounded-2xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all text-center">
-          <div class="text-7xl mb-6">🏗️</div>
-          <h3 class="text-2xl font-bold mb-4 text-[#d4af37]">16 qavat to'liq ko'tarilgan</h3>
-          <p class="text-gray-300">Qurilish yuqori sur'atda. Tomlar yopilgan, ichki ishlar boshlangan.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card bg-[var(--dark-2)] border border-[var(--gold)]/20 hover:border-[var(--gold)] hover:scale-[1.03] transition-all duration-500 shadow-xl">
+          <div class="card-body items-center text-center p-10">
+            <div class="text-8xl mb-8">🏗️</div>
+            <h3 class="text-3xl font-bold text-[var(--gold)]">16 qavat to'liq ko'tarilgan</h3>
+            <p class="text-gray-300 text-lg mt-4">Tomlar yopilgan, ichki ishlar boshlangan — rekord sur'atda qurilmoqda.</p>
+          </div>
         </div>
 
-        <div class="bg-[#11203f] p-8 rounded-2xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all text-center">
-          <div class="text-7xl mb-6">🔑</div>
-          <h3 class="text-2xl font-bold mb-4 text-[#d4af37]">100% tayyor holatda</h3>
-          <p class="text-gray-300">Kalit topshirish 2026 yil oxirida — to'liq remont bilan.</p>
+        <div class="card bg-[var(--dark-2)] border border-[var(--gold)]/20 hover:border-[var(--gold)] hover:scale-[1.03] transition-all duration-500 shadow-xl">
+          <div class="card-body items-center text-center p-10">
+            <div class="text-8xl mb-8">🔑</div>
+            <h3 class="text-3xl font-bold text-[var(--gold)]">100% tayyor holatda</h3>
+            <p class="text-gray-300 text-lg mt-4">Kalit topshirish 2026 yil oxirida — to'liq remont, zamonaviy dizayn.</p>
+          </div>
         </div>
 
-        <div class="bg-[#11203f] p-8 rounded-2xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all text-center">
-          <div class="text-7xl mb-6">💰</div>
-          <h3 class="text-2xl font-bold mb-4 text-[#d4af37]">Arzon narx + rassrochka</h3>
-          <p class="text-gray-300">M² 7.5 mln so'mdan • Boshlang'ich 100 mln • 18 oyga 5 mln/oy • Ipoteka.</p>
+        <div class="card bg-[var(--dark-2)] border border-[var(--gold)]/20 hover:border-[var(--gold)] hover:scale-[1.03] transition-all duration-500 shadow-xl">
+          <div class="card-body items-center text-center p-10">
+            <div class="text-8xl mb-8">💰</div>
+            <h3 class="text-3xl font-bold text-[var(--gold)]">Arzon narx + rassrochka</h3>
+            <p class="text-gray-300 text-lg mt-4">M² 7.5 mln so'm • Boshlang'ich 100 mln • 18 oygacha 5 mln/oy • Ipoteka.</p>
+          </div>
         </div>
 
-        <div class="bg-[#11203f] p-8 rounded-2xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all text-center">
-          <div class="text-7xl mb-6">🛡️</div>
-          <h3 class="text-2xl font-bold mb-4 text-[#d4af37]">Xavfsizlik va qulaylik</h3>
-          <p class="text-gray-300">24/7 ohrana, video kuzatuv, bolalar maydonchasi, yashil hudud.</p>
+        <div class="card bg-[var(--dark-2)] border border-[var(--gold)]/20 hover:border-[var(--gold)] hover:scale-[1.03] transition-all duration-500 shadow-xl">
+          <div class="card-body items-center text-center p-10">
+            <div class="text-8xl mb-8">🛡️</div>
+            <h3 class="text-3xl font-bold text-[var(--gold)]">Xavfsizlik va qulaylik</h3>
+            <p class="text-gray-300 text-lg mt-4">24/7 ohrana, video kuzatuv, bolalar maydonchasi, yashil hudud, katta parking.</p>
+          </div>
         </div>
 
-        <div class="bg-[#11203f] p-8 rounded-2xl border border-[#d4af37]/20 hover:border-[#d4af37] transition-all text-center">
-          <div class="text-7xl mb-6">📍</div>
-          <h3 class="text-2xl font-bold mb-4 text-[#d4af37]">Eng qulay joylashuv</h3>
-          <p class="text-gray-300">Navoiy markazida, Bulvar ko'chasi — maktab, do'kon, transport yaqin.</p>
+        <div class="card bg-[var(--dark-2)] border border-[var(--gold)]/20 hover:border-[var(--gold)] hover:scale-[1.03] transition-all duration-500 shadow-xl md:col-span-2 lg:col-span-1">
+          <div class="card-body items-center text-center p-10">
+            <div class="text-8xl mb-8">📍</div>
+            <h3 class="text-3xl font-bold text-[var(--gold)]">Eng qulay joylashuv</h3>
+            <p class="text-gray-300 text-lg mt-4">Navoiy shahri markazi, Bulvar ko'chasi — maktab, do'kon, transport yaqinida.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-12 text-center text-gray-400 border-t border-[#d4af37]/10">
-    <p>© 2025 Baraka Residence. Barcha huquqlar himoyalangan.</p>
-    <p class="mt-2">+998 90 087 11 11 • @barakaresidence.uz</p>
+  <!-- Footer -->
+  <footer class="py-16 text-center bg-black border-t border-[var(--gold)]/10">
+    <p class="text-gray-400">© 2025 Baraka Residence. Barcha huquqlar himoyalangan.</p>
+    <p class="mt-4 text-[var(--gold)] font-medium">+998 90 087 11 11 • @barakaresidence.uz</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Встроенный JS -->
+  <script>
+    // Плавный скролл к якорям
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
