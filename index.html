@@ -22,7 +22,7 @@
       background: var(--bg);
       color: white;
       font-family: 'Inter', sans-serif;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -32,9 +32,9 @@
     }
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(6rem, 15vw, 16rem);
+      font-size: clamp(6rem, 15vw, 14rem);
       font-weight: 900;
-      line-height: 0.8;
+      line-height: 0.82;
       letter-spacing: -0.04em;
       background: linear-gradient(90deg, var(--gold), #ffffff, var(--gold));
       -webkit-background-clip: text;
@@ -42,16 +42,16 @@
       text-shadow: 0 0 60px var(--glow);
     }
     .counter-box {
-      background: rgba(15, 20, 40, 0.6);
+      background: rgba(15, 20, 40, 0.7);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(240,209,158,0.2);
       border-radius: 32px;
       padding: 3rem 5rem;
       margin: 3rem 0;
-      box-shadow: 0 20px 80px rgba(0,0,0,0.7), inset 0 0 40px rgba(240,209,158,0.05);
+      box-shadow: 0 20px 80px rgba(0,0,0,0.7);
     }
     .counter {
-      font-size: clamp(8rem, 18vw, 22rem);
+      font-size: clamp(8rem, 18vw, 20rem);
       font-weight: 900;
       color: var(--gold);
       line-height: 0.9;
@@ -73,7 +73,7 @@
       box-shadow: 0 10px 40px rgba(240,209,158,0.3);
     }
     .btn-gold:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px);
       box-shadow: 0 20px 60px rgba(240,209,158,0.5);
     }
     .btn-outline {
@@ -83,12 +83,12 @@
     .btn-outline:hover {
       background: var(--gold);
       color: black;
-      transform: translateY(-6px);
+      transform: translateY(-8px);
     }
     .fade-in {
       opacity: 0;
-      transform: translateY(80px);
-      transition: all 1.2s ease-out;
+      transform: translateY(60px);
+      transition: all 1s ease-out;
     }
     .fade-in.visible {
       opacity: 1;
@@ -100,11 +100,11 @@
 
   <main class="relative z-10">
     
-    <div class="fade-in text-center mb-16 md:mb-24" style="animation-delay: 0.3s;">
-      <img src="assets/logo.png" alt="Baraka Residence" class="mx-auto w-56 md:w-72 lg:w-96 mb-12 md:mb-16" />
+    <div class="fade-in mb-16 md:mb-24" style="animation-delay: 0.3s;">
+      <img src="assets/logo.png" alt="Baraka Residence" class="mx-auto w-64 md:w-80 lg:w-96 mb-12 md:mb-16" />
     </div>
 
-    <h1 class="fade-in gold-glow" style="animation-delay: 0.6s;">
+    <h1 class="fade-in" style="animation-delay: 0.6s;">
       BARAKA
     </h1>
 
@@ -137,7 +137,6 @@
     </div>
   </main>
 
-  <!-- JS появления -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
