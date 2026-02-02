@@ -1,40 +1,72 @@
-/* Переменные */
+/* style.css */
 :root {
-  --gold: #d4af37;
-  --dark: #0b162b;
-  --card: #11203f;
+  --bg: #0a0c18;
+  --gold: #f0d19e;
+  --glow: rgba(240, 209, 158, 0.25);
+  --glass: rgba(15, 20, 40, 0.6);
 }
 
-/* Лого */
-.logo {
-  max-width: 280px;
-  height: auto;
-  transition: all 0.6s ease;
-  filter: drop-shadow(0 10px 20px rgba(212, 175, 55, 0.3));
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logo:hover {
-  transform: scale(1.07) translateY(-6px);
-  filter: drop-shadow(0 20px 40px rgba(212, 175, 55, 0.5));
+body {
+  background: var(--bg);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
 }
 
-/* Анимация появления лого */
-@keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.85) translateY(40px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
 }
 
-.logo {
-  animation: fadeInScale 1.8s ease-out forwards;
+.glow-text {
+  text-shadow: 0 0 40px var(--glow);
 }
 
-/* Карточки */
-.bg-[#11203f] {
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(240,209,158,0.15);
+  border-radius: 24px;
   transition: all 0.4s ease;
 }
 
-.bg-[#11203f]:hover {
-  transform: translateY(-10px);
+.glass:hover {
+  transform: translateY(-12px);
   border-color: var(--gold);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(212,175,55,0.15);
+  box-shadow: 0 20px 60px rgba(240,209,158,0.25);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 12, 24, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(240,209,158,0.1);
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(10, 12, 24, 0.95);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
